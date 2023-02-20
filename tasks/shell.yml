@@ -1,0 +1,8 @@
+---
+- name: Install from Mac app store
+  ansible.builtin.shell: mas install {{ item }}
+  with_items:
+    - 497799835 # xcode
+
+- name: Install Oh My Zsh
+  ansible.builtin.shell: curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh

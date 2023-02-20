@@ -1,0 +1,15 @@
+---
+- name: Add custom Homebrew repos
+  community.general.homebrew_tap:
+    name: "{{ homebrew_repos }}"
+
+- name: Install core packages via brew casks
+  community.general.homebrew_cask:
+    name: "{{ item }}"
+  with_items: "{{ homebrew_cask_apps }}"
+
+- name: Install homebrew packages
+  community.general.homebrew:
+    name: "{{ homebrew_packages }}"
+    state: present
+    update_homebrew: true

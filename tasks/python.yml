@@ -1,0 +1,6 @@
+---
+- name: Install pip packages
+  ansible.builtin.pip:
+    name: "{{ item }}"
+    executable: pip3
+  with_items: "{{ python_dependencies }}"
